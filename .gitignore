@@ -35,3 +35,6 @@ build/
 
 ### MVN ###
 .mvn
+
+#Docker
+Dockerfile
