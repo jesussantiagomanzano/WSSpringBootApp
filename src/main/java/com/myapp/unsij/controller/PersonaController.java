@@ -1,27 +1,30 @@
 package com.myapp.unsij.controller;
 
 import com.myapp.unsij.entity.Persona;
+import com.myapp.unsij.service.PersonaService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "personas")
+@RequestMapping(value = "persona")
 public class PersonaController {
 
-    List<Persona> personas  = new ArrayList<>();
+    private final PersonaService service;
 
-    @GetMapping()
-    public List<Persona> personas(){
-
-        return personas;
+    public PersonaController(PersonaService service) {
+        this.service = service;
     }
 
     @PostMapping
     public Persona addPersona(@RequestBody Persona persona){
-        personas.add(persona);
-       return persona;
+       return service.savePersona(persona);
+    }
+
+    @GetMapping
+    public List<Persona> getAll(){
+        return service.getAllPersona();
     }
 
 
