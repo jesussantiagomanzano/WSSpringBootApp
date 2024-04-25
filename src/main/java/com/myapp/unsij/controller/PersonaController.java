@@ -2,6 +2,7 @@ package com.myapp.unsij.controller;
 
 import com.myapp.unsij.entity.Persona;
 import com.myapp.unsij.service.PersonaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class PersonaController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Persona addPersona(@RequestBody Persona persona){
        return service.savePersona(persona);
     }
