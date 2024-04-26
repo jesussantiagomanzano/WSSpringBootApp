@@ -1,8 +1,8 @@
 package com.myapp.unsij.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Setter
 @Getter
@@ -20,11 +20,16 @@ public class Persona {
     @Column(length = 300, name = "last_name", nullable = false)
     private String lastName;
 
+    @Pattern(regexp = "[A-Z]{4}+\\d{6}+[A-Z]{6}+\\d{2}", message = "Not valid CURP")
     private String curp;
 
+    @NotNull(message = "Age must not be null")
+    @Min(value = 0, message = "Min value must be 0")
+    @Max(value = 200, message = "Value not allowed")
     private Integer age;
 
-    @Column(nullable = false)
+
+    @Email
     private String email;
 
 
