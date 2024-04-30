@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
-    @Query(value = "SELECT id, age, last_name, name, email, curp FROM curso_springboot.persona", nativeQuery = true)
+    @Query(value = "SELECT id, age, last_name, name, email, curp FROM persona", nativeQuery = true)
     List<Persona> listaPersona();
 
 

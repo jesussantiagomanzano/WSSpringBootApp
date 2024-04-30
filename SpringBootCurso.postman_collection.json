@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "9c71e7a2-3a8d-469d-9f4f-975a2675b119",
+		"name": "SpringBootCurso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8440444"
+	},
+	"item": [
+		{
+			"name": "GetAllPerson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/persona",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBooksByTags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"name\",\"1954\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/book/findByTags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book",
+						"findByTags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"name\",\"1954\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SavePerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pedros\",\r\n    \"lastName\": \"Santiago\",\r\n    \"curp\": \"SAMJ030520HOCNSN07\",\r\n    \"email\": \"pedro@gmail.com\",\r\n    \"age\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/persona",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The Lord Of The Rings - The Fellowship of the Ring\",\r\n    \"isbn\": \"0111223\",\r\n    \"year\": 1954\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveTags",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"book\": {\r\n            \"id\": 52\r\n        },\r\n        \"name\": \"Fellowship\"\r\n    },\r\n    {\r\n        \"book\": {\r\n            \"id\": 52\r\n        },\r\n        \"name\": \"The Lord Of The Rings\"\r\n    },\r\n    {\r\n        \"book\": {\r\n            \"id\": 52\r\n        },\r\n        \"name\": \"1954\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tag"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
