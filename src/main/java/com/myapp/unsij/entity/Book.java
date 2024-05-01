@@ -1,6 +1,7 @@
 package com.myapp.unsij.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,10 @@ public class Book {
     private String title;
     private String isbn;
     private int year;
+
+    @OneToMany(mappedBy = "book")
+    @JsonManagedReference
+    private Set<Tag> tags;
 
 
 

@@ -15,6 +15,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     //SELECT * FROM BOOK WHERE ID = ?
     public Optional<Book> findById(Long id);
 
-    @Query(value = "SELECT B.id, B.title, B.isbn, B.year FROM BOOK B INNER JOIN TAG T WHERE T.book_id = B.id AND T.name in ?", nativeQuery = true)
-    public List<Book> findAllByTags(Set<String> tags);
+    //@Query(value = "SELECT B.id, B.title, B.isbn, B.year FROM BOOK B INNER JOIN TAG T WHERE T.book_id = B.id AND T.name in ?", nativeQuery = true)
+    public List<Book> findAllByTagsIn(Set<Tag> tags);
 }
