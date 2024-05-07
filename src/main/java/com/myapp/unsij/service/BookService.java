@@ -7,10 +7,7 @@ import com.myapp.unsij.repository.TagRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -37,5 +34,20 @@ public class BookService {
 
     public Book save(Book book) {
         return repository.save(book);
+    }
+
+    public Book updateBook(Book book) {
+        return repository.save(book);
+    }
+
+    public List<Book> findAll() {
+        return repository.findAll();
+    }
+
+    public void deleteBook(Long bookId) {
+        Optional<Book> book = repository.findById(bookId);
+        if(book.isPresent()){
+            repository.delete(book.get());
+        }
     }
 }

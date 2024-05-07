@@ -25,7 +25,7 @@ public class Book {
     private String isbn;
     private int year;
 
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book", cascade=CascadeType.REMOVE)
     @JsonManagedReference
     private Set<Tag> tags;
 
