@@ -3,6 +3,7 @@ package com.myapp.unsij.controller;
 import com.myapp.unsij.entity.Book;
 import com.myapp.unsij.entity.Tag;
 import com.myapp.unsij.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class BookController {
 
     private final BookService bookService;
 
+    @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }

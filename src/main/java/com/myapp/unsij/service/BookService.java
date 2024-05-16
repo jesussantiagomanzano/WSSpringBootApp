@@ -5,6 +5,7 @@ import com.myapp.unsij.entity.Tag;
 import com.myapp.unsij.repository.BookRepository;
 import com.myapp.unsij.repository.TagRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -15,6 +16,7 @@ public class BookService {
     private final BookRepository repository;
     private final TagRepository tagRepository;
 
+    @Autowired
     public BookService(BookRepository repository, TagRepository tagRepository) {
         this.repository = repository;
         this.tagRepository = tagRepository;
@@ -25,7 +27,8 @@ public class BookService {
         for(String tagName: tags){
             tagList.add(tagRepository.findByName(tagName));
         }
-        log.info("TagList:" + tagList.toString());
+
+        tags.forEach(log::info);
 
         return repository.findAllByTagsIn(tagList);
 
