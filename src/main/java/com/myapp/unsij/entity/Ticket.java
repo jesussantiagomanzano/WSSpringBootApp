@@ -23,16 +23,15 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String label;
-    private Date date;
+
     private Double total;
 
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     @OneToMany(mappedBy = "ticket", cascade=CascadeType.REMOVE)
     @JsonManagedReference
     private List<Product> products;
-
-
 
 
 }

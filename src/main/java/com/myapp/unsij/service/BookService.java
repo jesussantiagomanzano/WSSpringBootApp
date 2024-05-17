@@ -4,6 +4,7 @@ import com.myapp.unsij.entity.Book;
 import com.myapp.unsij.entity.Tag;
 import com.myapp.unsij.repository.BookRepository;
 import com.myapp.unsij.repository.TagRepository;
+import com.myapp.unsij.utils.UnsijAppException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,10 @@ public class BookService {
         Optional<Book> book = repository.findById(bookId);
         if(book.isPresent()){
             repository.delete(book.get());
+        }
+        else{
+            log.info("{}", "Book not found");
+            throw new UnsijAppException("Book not found");
         }
     }
 }
