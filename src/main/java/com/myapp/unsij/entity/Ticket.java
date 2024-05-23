@@ -21,6 +21,8 @@ import java.util.Set;
 @AllArgsConstructor
 public class Ticket {
     @Id
+
+    
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 

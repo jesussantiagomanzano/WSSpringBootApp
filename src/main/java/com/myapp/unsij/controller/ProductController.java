@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("product")
 public class ProductController {
@@ -19,11 +20,18 @@ public class ProductController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping("saveProductList")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Product> saveProducts(@RequestBody List<Product> products){
         return service.saveProducts(products);
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product saveProduct(@RequestBody Product product){
+        return service.saveProduct(product);
+    }
+
 
     @GetMapping
     public List<Product> findAllProducts(){

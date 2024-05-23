@@ -4,11 +4,13 @@ import com.myapp.unsij.entity.Book;
 import com.myapp.unsij.entity.Tag;
 import com.myapp.unsij.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
 
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping(value = "book")
 public class BookController {
@@ -20,7 +22,6 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping
     public Book saveBook(@RequestBody Book book){
         return bookService.save(book);
     }

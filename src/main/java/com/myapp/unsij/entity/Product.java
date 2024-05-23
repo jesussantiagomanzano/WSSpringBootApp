@@ -16,6 +16,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String name;
     @Column(name = "description")
     private String description;
     private Double weight;
