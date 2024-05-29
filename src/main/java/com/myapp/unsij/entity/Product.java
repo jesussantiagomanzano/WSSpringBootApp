@@ -21,6 +21,11 @@ public class Product {
     private String description;
     private Double weight;
 
+    private String barcode;
+
+    private Double price;
+
+
     @ManyToOne
     @JoinColumn(name = "ticket_id")
     @JsonBackReference

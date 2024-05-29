@@ -2,10 +2,12 @@ package com.myapp.unsij.service;
 
 import com.myapp.unsij.entity.Product;
 import com.myapp.unsij.repository.ProductRepository;
+import com.myapp.unsij.utils.UnsijAppException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -29,4 +31,13 @@ public class ProductService {
     }
 
 
+    public Product findProductById(Long idProduct) {
+        Optional<Product> productOptional = productRepository.findById(idProduct);
+        if(productOptional.isPresent()){
+          return  productOptional.get();
+        }
+        else{
+            throw new UnsijAppException("Producto no encontrado");
+        }
+    }
 }
