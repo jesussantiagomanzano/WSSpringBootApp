@@ -40,4 +40,8 @@ public class ProductService {
             throw new UnsijAppException("Producto no encontrado");
         }
     }
+
+    public void deleteProductById(Long idProduct) {
+        productRepository.deleteById(idProduct);
+    }
 }
